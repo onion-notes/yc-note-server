@@ -1,0 +1,17 @@
+[
+  {
+    "name": "yc-note-server",
+    "script": "./bin/www",
+    "exec_mode" : "fork",
+    "interpreter": "node@10.10.0",
+    "args": "log",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "merge_logs"  : true,
+    "env": {
+      "PORT": 4000,
+      "NODE_ENV": "production",
+      "SEND_RESTART_SMS": true
+    }
+  }
+]
