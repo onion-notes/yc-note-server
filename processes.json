@@ -10,8 +10,7 @@
     "merge_logs"  : true,
     "env": {
       "PORT": 4000,
-      "NODE_ENV": "production",
-      "SEND_RESTART_SMS": true
+      "NODE_ENV": "production"
     }
   }
 ]
