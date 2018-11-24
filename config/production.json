@@ -2,11 +2,16 @@
   "logConfig": {
     "level": "ALL"
   },
+  "esIndex": "notes",
+  "esType": "article",
   "jwtSignKey": "yc",
+  "serverUrl": "http://api.yc.ailearning.pro",
+  "articleCron": "00 30 1 * * *",
+  "robotPushCron": "*/30 * * * * *",
   "pg": {
-    "username": "jianxun",
+    "username": "postgres",
     "password": "rootroot",
-    "database": "shuyin",
+    "database": "yc-note",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
