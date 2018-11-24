@@ -1,0 +1,45 @@
+{
+  "settings" : {
+    "number_of_shards" : 1,
+    "number_of_replicas" : 1
+  },
+  "mappings" : {
+    "article" : {
+      "properties" : {
+        "userId": {
+          "type" : "keyword"
+        },
+        "title": {
+          "type" : "text",
+          "analyzer": "by_max_word",
+          "search_analyzer": "by_smart"
+        },
+        "description": {
+          "type" : "text",
+          "analyzer": "by_max_word",
+          "search_analyzer": "by_smart"
+        },
+        "content": {
+          "type" : "text",
+          "analyzer": "by_max_word",
+          "search_analyzer": "by_smart"
+        },
+        "link": {
+          "type" : "keyword"
+        },
+        "thumbPath": {
+          "type" : "keyword"
+        },
+        "type": {
+          "type" : "integer"
+        },
+        "isShare": {
+          "type" : "boolean"
+        },
+        "cratedAt": {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

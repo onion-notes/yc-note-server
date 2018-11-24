@@ -1,0 +1,13 @@
+{
+  "logConfig": {
+    "level": "ALL"
+  },
+  "jwtSignKey": "yc",
+  "pg": {
+    "username": "jianxun",
+    "password": "rootroot",
+    "database": "shuyin",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

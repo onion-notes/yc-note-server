@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+const http = require('http')
+const app = require('../app/app')
+const pkg = require('../package')
+const esService = require('../app/services/es.srv')
+const articleService = require('../app/services/article.srv')
+const cronHelper = require('../app/helper/cronHelper')
+
+const logger = require('../app/helper/log.helper').getLogger('WWW')
+
+const normalizePort = val => {
+  const port = parseInt(val, 10)
+
+  if (isNaN(port)) {
+    return val
+  }
+
+  if (port >= 0) {
+    return port
+  }
+  return false
+}
+
+const onError = error => {
+  if (error.syscall !== 'listen') {
+    throw error
+  }
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
+  switch (error.code) {
+    case 'EACCES':
+      logger.error(bind + ' requires elevated privileges')
+      process.exit(1)
+    case 'EADDRINUSE':
+      logger.error(bind + ' is already in use')
+      process.exit(1)
+    default:
+      throw error
+  }
+}
+
+const onListening = async () => {
+  const addr = server.address()
+  const env = process.env.NODE_ENV || 'development'
+  logger.info(`${pkg.name}(v${pkg.version}) working on ${addr.port}, env is ${env} ...`)
+  await esService.autoCreateTemplate()
+  await esService.autoCreateIndex()
+  await articleService.resetArticlePV()
+  cronHelper.startCron()
+}
+
+const port = normalizePort(process.env.PORT || '4000s')
+const server = http.createServer(app.callback())
+server.listen(port)
+server.on('error', onError)
+server.on('listening', onListening)
