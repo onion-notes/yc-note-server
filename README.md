@@ -4,19 +4,18 @@
 
 在elasticsearch-6.4.2目录下执行：
 
+配置文件在根目录`elasticsearch.yml`,放在elastic search的config目录下
+
 ```
   ./bin/elasticsearch
 ```
 等一会启动有点慢
 
-每晚自动更新pv
 
 todo
 
-个人收藏夹，分类
-
-1. 钉钉推送、微信、qq，
-2. 资源订阅（系统自动订阅，推送）
-3. 智能推荐
-4. 不能录随便看，登录后看定制的
+1. 完善钉钉推送、增加微信、qq推送，
+2. 完善Chrome 插件
+3. 云笔记同步
+4. 优化体验
 
