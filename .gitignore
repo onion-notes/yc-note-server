@@ -171,3 +171,4 @@ adebug
 config/default.json
 package-lock.json
 .idea/
+app/public/

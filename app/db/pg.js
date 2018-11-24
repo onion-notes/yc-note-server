@@ -4,17 +4,6 @@ const dbConfig = require('config').get('pg')
 const models = require('../models/pg')
 const logger = require('../helper/log.helper').getLogger('db-pg')
 
-const { Pool } = require('pg')
-const pool = new Pool()
-
-pool.on('error', (err) => {
-  return logger.error('catch error: ', err)
-})
-
-pool.on('connect', () => {
-  return logger.info(`connect to ${dbConfig.database} successfully!`)
-})
-
 const Op = Sequelize.Op
 const operatorsAliases = {
   $eq: Op.eq,
@@ -91,7 +80,6 @@ sequelize.authenticate().then(() => {
 })
 
 module.exports = _.extend({
-  pool: pool,
   sequelize: sequelize,
   Sequelize: Sequelize
 }, db)
