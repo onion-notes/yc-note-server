@@ -12,7 +12,8 @@
     "username": "postgres",
     "password": "rootroot",
     "database": "yc-note",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432
   }
 }
